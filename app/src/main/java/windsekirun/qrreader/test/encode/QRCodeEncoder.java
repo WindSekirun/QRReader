@@ -191,7 +191,8 @@ public class QRCodeEncoder {
             hints.put(EncodeHintType.CHARACTER_SET, encoding);
         }
         MultiFormatWriter writer = new MultiFormatWriter();
-        BitMatrix result = writer.encode(contents, format, Integer.MAX_VALUE, Integer.MAX_VALUE, hints);
+        // HARD-CODING Value.
+        BitMatrix result = writer.encode(contents, format, 1536, 1536, hints);
         int width = result.getWidth();
         int height = result.getHeight();
         int[] pixels = new int[width * height];
