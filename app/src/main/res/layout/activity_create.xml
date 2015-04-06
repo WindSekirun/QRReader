@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <view
+        class="android.support.v7.widget.Toolbar"
+        android:layout_width="fill_parent"
+        android:layout_height="56dip"
+        android:id="@+id/toolbar"
+        android:background="@color/light_blue_500"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="학번"
+        android:id="@+id/textView"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dip" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentNum"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dip"
+        android:singleLine="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="생성"
+        android:id="@+id/generate"
+        android:layout_below="@+id/studentNum"
+        android:layout_alignLeft="@+id/studentNum"
+        android:layout_alignStart="@+id/studentNum"
+        android:layout_alignRight="@+id/studentNum"
+        android:layout_alignEnd="@+id/studentNum"
+        android:layout_marginTop="10dip"
+        android:background="@color/light_blue_700"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:background="@color/light_blue_700"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/generate"
+        android:layout_alignLeft="@+id/generate"
+        android:layout_alignStart="@+id/generate"
+        android:text="저장"
+        android:layout_alignRight="@+id/generate"
+        android:layout_alignEnd="@+id/generate"
+        android:layout_marginTop="10dip" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/display"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/save"
+        android:layout_margin="10dip" />
+</RelativeLayout>
