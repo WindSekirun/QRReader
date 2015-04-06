@@ -50,7 +50,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             startActivity(new Intent(MainActivity.this, GenerateActivity.class));
             finish();
         } else if (id == R.id.read) {
-            //TODO: SCAN QRCODE
+            startActivity(new Intent(MainActivity.this, CaptureActivity.class));
+            finish();
         } else {
             showLicenseDialog();
         }

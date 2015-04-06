@@ -26,15 +26,13 @@ public class QRCodeEncoder {
     private static final int WHITE = 0xFFFFFFFF;
     private static final int BLACK = 0xFF000000;
 
-    private int dimension = Integer.MIN_VALUE;
     private String contents = null;
     private String displayContents = null;
     private String title = null;
     private BarcodeFormat format = null;
     private boolean encoded = false;
 
-    public QRCodeEncoder(String data, Bundle bundle, String type, String format, int dimension) {
-        this.dimension = dimension;
+    public QRCodeEncoder(String data, Bundle bundle, String type, String format) {
         encoded = encodeContents(data, bundle, type, format);
     }
 
@@ -193,7 +191,7 @@ public class QRCodeEncoder {
             hints.put(EncodeHintType.CHARACTER_SET, encoding);
         }
         MultiFormatWriter writer = new MultiFormatWriter();
-        BitMatrix result = writer.encode(contents, format, dimension, dimension, hints);
+        BitMatrix result = writer.encode(contents, format, Integer.MAX_VALUE, Integer.MAX_VALUE, hints);
         int width = result.getWidth();
         int height = result.getHeight();
         int[] pixels = new int[width * height];

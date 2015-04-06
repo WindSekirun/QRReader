@@ -3,7 +3,6 @@ package windsekirun.qrreader.test;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -84,7 +82,8 @@ public class GenerateActivity extends ActionBarActivity implements View.OnClickL
                 Toast.makeText(this, "학번을 입력해주세요!", Toast.LENGTH_LONG).show();
             else new NaraeAsync(false, new generateQRCode(), 8, "GENERATE_QRCODE").execute();
         } else {
-            if (generatedCode == null) Toast.makeText(this, "코드를 먼저 생성해주세요!", Toast.LENGTH_LONG).show();
+            if (generatedCode == null)
+                Toast.makeText(this, "코드를 먼저 생성해주세요!", Toast.LENGTH_LONG).show();
             else save();
         }
     }
@@ -110,19 +109,7 @@ public class GenerateActivity extends ActionBarActivity implements View.OnClickL
         @Override
         public void run() {
             String text = studentNum.getText().toString();
-            WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
-            Display d = manager.getDefaultDisplay();
-            Point point = new Point();
-            d.getSize(point);
-            int width = point.x;
-            int height = point.y;
-            int smallerDimension = width < height ? width : height;
-            // smallerDimension = smallerDimension * 3 / 4;
-            QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(text,
-                    null,
-                    Contents.Type.TEXT,
-                    BarcodeFormat.QR_CODE.toString(),
-                    smallerDimension);
+            QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(text, null, Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString());
             try {
                 generatedBitmap = qrCodeEncoder.encodeAsBitmap();
                 generatedCode = new BitmapDrawable(GenerateActivity.this.getResources(), generatedBitmap);
