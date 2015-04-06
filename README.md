@@ -1,4 +1,7 @@
 # QRReader
+
+코드 작업 시간: 약 2시간
+
 이 코드는 단순한 프로토타입을 위한 코드로, 발로 짜여진 코드가 상당히 많습니다.
 사용에 주의하십시오.
 
@@ -15,5 +18,8 @@ https://github.com/zxing/zxing
 
 * NaraeAsync, Made by WindSekirun
 * NaraePreference, Made by WindSekirun
+
+이 앱의 스크린샷 [더보기: https://github.com/WindSekirun/QRReader/tree/master/screenshot ]
+![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/2.png)
 
 Copyleft 2015 WindSekirun.
