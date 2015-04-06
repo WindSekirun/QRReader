@@ -50,8 +50,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             startActivity(new Intent(MainActivity.this, GenerateActivity.class));
             finish();
         } else if (id == R.id.read) {
-            Intent i = new Intent("com.google.zxing.client.android.SCAN");
-            startActivityForResult(i, 0);
+            //TODO: SCAN QRCODE
         } else {
             showLicenseDialog();
         }
@@ -60,7 +59,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void showLicenseDialog() {
         @SuppressLint("InflateParams") View v = LayoutInflater.from(this).inflate(R.layout.dialog, null, false);
         WebView wv = (WebView) v.findViewById(R.id.wv);
-        wv.loadUrl("");
+        wv.loadUrl("file:///android_asset/license.html");
         AlertDialog.Builder ab = new AlertDialog.Builder(this);
         ab.setView(v);
         ab.setPositiveButton("확인", new DialogInterface.OnClickListener() {
@@ -72,14 +71,4 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         ab.show();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0) {
-            if (requestCode == RESULT_OK) {
-                String contents = data.getStringExtra("SCAN_RESULT");
-                Toast.makeText(MainActivity.this, "인식한 내용: " + contents, Toast.LENGTH_LONG).show();
-            } else Toast.makeText(MainActivity.this, "인식에 실패하였습니다.", Toast.LENGTH_LONG).show();
-        }
-    }
 }
