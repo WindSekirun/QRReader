@@ -11,8 +11,8 @@ https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 
 이 소스는 아래의 라이브러리를 사용하고 있습니다.
 
-https://github.com/zxing/zxing
-https://github.com/dlazaro66/QRCodeReaderView
+* https://github.com/zxing/zxing
+* https://github.com/dlazaro66/QRCodeReaderView
 
 이 소스는 현재 아래의 기능을 수행할 수 있습니다.
 
