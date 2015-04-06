@@ -132,12 +132,14 @@ public class QRCodeEncoder {
                     }
 
                     Collection<String> uniqueEmails = new HashSet<>(Contents.EMAIL_KEYS.length);
+
                     for (int x = 0; x < Contents.EMAIL_KEYS.length; x++) {
                         String email = trim(bundle.getString(Contents.EMAIL_KEYS[x]));
                         if (email != null) {
                             uniqueEmails.add(email);
                         }
                     }
+
                     for (String email : uniqueEmails) {
                         newContents.append("EMAIL:").append(escapeMECARD(email)).append(';');
                         newDisplayContents.append('\n').append(email);
