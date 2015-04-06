@@ -16,4 +16,11 @@ https://github.com/zxing/zxing
 * NaraeAsync, Made by WindSekirun
 * NaraePreference, Made by WindSekirun
 
+이 앱의 스크린샷
+![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/1.png)
+![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/2.png)
+![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/3.png)
+![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/4.png)
+![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/5.png)
+
 Copyleft 2015 WindSekirun.
