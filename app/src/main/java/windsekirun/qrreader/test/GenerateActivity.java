@@ -1,10 +1,12 @@
 package windsekirun.qrreader.test;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Display;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,9 +41,6 @@ import windsekirun.qrreader.test.encode.QRCodeEncoder;
 /**
  * Using Library:
  * https://github.com/zxing/zxing
- * http://barcode4j.sourceforge.net
- * http://zbar.sourceforge.net
- * http://sourceforge.net/projects/zint/
  */
 public class GenerateActivity extends ActionBarActivity implements View.OnClickListener {
     EditText studentNum;
@@ -51,10 +51,17 @@ public class GenerateActivity extends ActionBarActivity implements View.OnClickL
     Bitmap generatedBitmap = null;
     String path;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
+        if (Build.VERSION.SDK_INT >= 20) {
+            Window w = getWindow();
+            w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            w.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            w.setStatusBarColor(getResources().getColor(R.color.light_blue_800));
+        }
         studentNum = (EditText) findViewById(R.id.studentNum);
         generate = (Button) findViewById(R.id.generate);
         save = (Button) findViewById(R.id.save);
@@ -66,7 +73,7 @@ public class GenerateActivity extends ActionBarActivity implements View.OnClickL
         toolbar.setTitleTextColor(0xffffffff);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/qrcode";
+        path = Environment.getExternalStorageDirectory().getPath() + "/QRReader/";
     }
 
     @Override
@@ -110,7 +117,7 @@ public class GenerateActivity extends ActionBarActivity implements View.OnClickL
             int width = point.x;
             int height = point.y;
             int smallerDimension = width < height ? width : height;
-            smallerDimension = smallerDimension * 3 / 4;
+            // smallerDimension = smallerDimension * 3 / 4;
             QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(text,
                     null,
                     Contents.Type.TEXT,
