@@ -1,5 +1,7 @@
 package windsekirun.qrreader.async;
 
+import android.support.annotation.NonNull;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.util.HashMap;
@@ -13,6 +15,7 @@ import java.util.regex.Pattern;
  * Class: NaraeAsync
  * Created by WindSekirun on 15. 3. 10..
  */
+@SuppressWarnings("ALL")
 public class NaraeAsync implements NaraeTask {
     public static final int DEFAULT_POOL_SIZE = getCoresCount() + 1;
     public static final String DEFAULT_TASK_TYPE = "DEFAULT";
@@ -115,7 +118,7 @@ public class NaraeAsync implements NaraeTask {
         }
 
         @Override
-        public void execute(Runnable command) {
+        public void execute(@NonNull Runnable command) {
             getExecutor().execute(command);
         }
 
