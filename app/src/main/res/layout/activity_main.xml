@@ -18,10 +18,13 @@
         android:text="QR 읽기"
         android:id="@+id/read"
         android:background="@color/light_blue_700"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dip"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_alignTop="@+id/generate"
+        android:layout_alignLeft="@+id/serverSend"
+        android:layout_alignStart="@+id/serverSend"
+        android:layout_toLeftOf="@+id/generate"
+        android:layout_toStartOf="@+id/generate"
+        android:layout_marginRight="5dip" />
 
     <Button
         android:layout_width="fill_parent"
@@ -30,9 +33,12 @@
         android:id="@+id/generate"
         android:background="@color/light_blue_700"
         android:textColor="#ffffff"
-        android:layout_above="@+id/read"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dip" />
+        android:layout_above="@+id/serverSend"
+        android:layout_toRightOf="@+id/relativeLayout"
+        android:layout_alignRight="@+id/serverSend"
+        android:layout_alignEnd="@+id/serverSend"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="5dip" />
 
     <Button
         android:layout_width="fill_parent"
@@ -41,10 +47,13 @@
         android:id="@+id/license"
         android:background="@color/light_blue_700"
         android:textColor="#ffffff"
-        android:layout_above="@+id/generate"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dip"
-        android:layout_margin="10dip" />
+        android:layout_above="@+id/github"
+        android:layout_alignLeft="@+id/github"
+        android:layout_alignStart="@+id/github"
+        android:layout_alignRight="@+id/github"
+        android:layout_alignEnd="@+id/github"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip" />
 
     <Button
         android:layout_width="fill_parent"
@@ -54,7 +63,33 @@
         android:background="@color/light_blue_700"
         android:textColor="#ffffff"
         android:layout_above="@+id/license"
+        android:layout_alignLeft="@+id/license"
+        android:layout_alignStart="@+id/license"
+        android:layout_alignRight="@+id/license"
+        android:layout_alignEnd="@+id/license"
+        android:layout_marginBottom="5dip"
+        android:layout_marginTop="5dip" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Github"
+        android:id="@+id/github"
+        android:background="@color/light_blue_700"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="10dip" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/serverSend"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10pt" />
+        android:id="@+id/relativeLayout"/>
 
 </RelativeLayout>

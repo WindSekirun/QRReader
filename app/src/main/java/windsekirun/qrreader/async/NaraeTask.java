@@ -1,10 +1,11 @@
 package windsekirun.qrreader.async;
 
 /**
- * palette
+ * QRReader
  * Class: NaraeTask
  * Created by WindSekirun on 15. 3. 10..
  */
+@SuppressWarnings("ALL")
 public interface NaraeTask {
 
     /**

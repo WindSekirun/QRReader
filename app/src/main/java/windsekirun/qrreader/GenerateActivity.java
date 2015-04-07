@@ -27,7 +27,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import windsekirun.qrreader.async.NaraeAsync;
-import windsekirun.qrreader.encode.Contents;
 import windsekirun.qrreader.encode.QRCodeEncoder;
 
 /**
@@ -36,18 +35,15 @@ import windsekirun.qrreader.encode.QRCodeEncoder;
  * Created by WindSekirun on 2015. 4. 6..
  */
 
-/**
- * Using Library:
- * https://github.com/zxing/zxing
- */
+@SuppressWarnings("ALL")
 public class GenerateActivity extends ActionBarActivity implements View.OnClickListener {
-    EditText studentNum;
-    Button generate;
-    Button save;
-    ImageView display;
-    Drawable generatedCode = null;
-    Bitmap generatedBitmap = null;
-    String path;
+    public EditText studentNum;
+    public Button generate;
+    public Button save;
+    public ImageView display;
+    public Drawable generatedCode = null;
+    public Bitmap generatedBitmap = null;
+    public String path;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -109,7 +105,7 @@ public class GenerateActivity extends ActionBarActivity implements View.OnClickL
         @Override
         public void run() {
             String text = studentNum.getText().toString();
-            QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(text, null, Contents.Type.TEXT, BarcodeFormat.QR_CODE.toString());
+            QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(text, BarcodeFormat.QR_CODE.toString());
             try {
                 generatedBitmap = qrCodeEncoder.encodeAsBitmap();
                 generatedCode = new BitmapDrawable(GenerateActivity.this.getResources(), generatedBitmap);

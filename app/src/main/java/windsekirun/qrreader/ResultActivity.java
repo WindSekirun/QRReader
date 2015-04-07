@@ -13,8 +13,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.sql.SQLException;
-
 import windsekirun.qrreader.async.NaraeAsync;
 import windsekirun.qrreader.db.TempResultAdapter;
 
@@ -23,10 +21,11 @@ import windsekirun.qrreader.db.TempResultAdapter;
  * Class: ResultActivity
  * Created by WindSekirun on 2015. 4. 7..
  */
+@SuppressWarnings("ALL")
 public class ResultActivity extends ActionBarActivity implements View.OnClickListener {
-    String studentNum;
-    TextView statusText;
-    TempResultAdapter adapter;
+    public String studentNum;
+    public TextView statusText;
+    public TempResultAdapter adapter;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -51,6 +50,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         studentNum = data.getString("studentNum");
         studentNumText.setText(studentNum);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         adapter = new TempResultAdapter(this);
         new NaraeAsync(false, new ResultSave(), 8, "RESULT_SAVE").execute();
     }
@@ -84,19 +84,15 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
 
         @Override
         public void run() {
-            try {
-                adapter.open();
-                adapter.insertText(studentNum);
-                adapter.close();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        statusText.setText("체크 완료!");
-                    }
-                });
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            adapter.open();
+            adapter.insertText(studentNum);
+            adapter.close();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    statusText.setText("체크 완료!");
+                }
+            });
 
         }
     }

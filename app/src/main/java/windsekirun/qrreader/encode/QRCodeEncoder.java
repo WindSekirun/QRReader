@@ -1,9 +1,6 @@
 package windsekirun.qrreader.encode;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.telephony.PhoneNumberUtils;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -11,9 +8,7 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
-import java.util.Collection;
 import java.util.EnumMap;
-import java.util.HashSet;
 import java.util.Map;
 
 /**
@@ -21,34 +16,23 @@ import java.util.Map;
  * Class: QRCodeEncoder
  * Created by WindSekirun on 2015. 4. 6..
  */
+@SuppressWarnings("ALL")
 public class QRCodeEncoder {
 
-    private static final int WHITE = 0xFFFFFFFF;
-    private static final int BLACK = 0xFF000000;
+    public static final int WHITE = 0xFFFFFFFF;
+    public static final int BLACK = 0xFF000000;
 
-    private String contents = null;
-    private String displayContents = null;
-    private String title = null;
-    private BarcodeFormat format = null;
-    private boolean encoded = false;
+    public String contents;
+    public String displayContents;
+    public String title;
+    public BarcodeFormat format;
+    public boolean encoded;
 
-    public QRCodeEncoder(String data, Bundle bundle, String type, String format) {
-        encoded = encodeContents(data, bundle, type, format);
+    public QRCodeEncoder(String data, String format) {
+        encoded = encodeContents(data, format);
     }
 
-    public String getContents() {
-        return contents;
-    }
-
-    public String getDisplayContents() {
-        return displayContents;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    private boolean encodeContents(String data, Bundle bundle, String type, String formatString) {
+    public boolean encodeContents(String data, String formatString) {
         format = null;
         if (formatString != null) {
             try {
@@ -59,7 +43,7 @@ public class QRCodeEncoder {
         }
         if (format == null || format == BarcodeFormat.QR_CODE) {
             this.format = BarcodeFormat.QR_CODE;
-            encodeQRCodeContents(data, bundle, type);
+            encodeQRCodeContents(data, Contents.Type.TEXT);
         } else if (data != null && data.length() > 0) {
             contents = data;
             displayContents = data;
@@ -68,116 +52,13 @@ public class QRCodeEncoder {
         return contents != null && contents.length() > 0;
     }
 
-    private void encodeQRCodeContents(String data, Bundle bundle, String type) {
+    public void encodeQRCodeContents(String data, String type) {
         switch (type) {
             case Contents.Type.TEXT:
                 if (data != null && data.length() > 0) {
                     contents = data;
                     displayContents = data;
                     title = "Text";
-                }
-                break;
-            case Contents.Type.EMAIL:
-                data = trim(data);
-                if (data != null) {
-                    contents = "mailto:" + data;
-                    displayContents = data;
-                    title = "E-Mail";
-                }
-                break;
-            case Contents.Type.PHONE:
-                data = trim(data);
-                if (data != null) {
-                    contents = "tel:" + data;
-                    displayContents = PhoneNumberUtils.formatNumber(data);
-                    title = "Phone";
-                }
-                break;
-            case Contents.Type.SMS:
-                data = trim(data);
-                if (data != null) {
-                    contents = "sms:" + data;
-                    displayContents = PhoneNumberUtils.formatNumber(data);
-                    title = "SMS";
-                }
-                break;
-            case Contents.Type.CONTACT:
-                if (bundle != null) {
-                    StringBuilder newContents = new StringBuilder(100);
-                    StringBuilder newDisplayContents = new StringBuilder(100);
-                    newContents.append("MECARD:");
-
-                    String name = trim(bundle.getString(ContactsContract.Intents.Insert.NAME));
-                    if (name != null) {
-                        newContents.append("N:").append(escapeMECARD(name)).append(';');
-                        newDisplayContents.append(name);
-                    }
-
-                    String address = trim(bundle.getString(ContactsContract.Intents.Insert.POSTAL));
-                    if (address != null) {
-                        newContents.append("ADR:").append(escapeMECARD(address)).append(';');
-                        newDisplayContents.append('\n').append(address);
-                    }
-
-                    Collection<String> uniquePhones = new HashSet<>(Contents.PHONE_KEYS.length);
-                    for (int i = 0; i < Contents.PHONE_KEYS.length; i++) {
-                        String phone = trim(bundle.getString(Contents.PHONE_KEYS[i]));
-                        if (phone != null) {
-                            uniquePhones.add(phone);
-                        }
-                    }
-                    for (String phone : uniquePhones) {
-                        newContents.append("TEL:").append(escapeMECARD(phone)).append(';');
-                        newDisplayContents.append('\n').append(PhoneNumberUtils.formatNumber(phone));
-                    }
-
-                    Collection<String> uniqueEmails = new HashSet<>(Contents.EMAIL_KEYS.length);
-
-                    for (int x = 0; x < Contents.EMAIL_KEYS.length; x++) {
-                        String email = trim(bundle.getString(Contents.EMAIL_KEYS[x]));
-                        if (email != null) {
-                            uniqueEmails.add(email);
-                        }
-                    }
-
-                    for (String email : uniqueEmails) {
-                        newContents.append("EMAIL:").append(escapeMECARD(email)).append(';');
-                        newDisplayContents.append('\n').append(email);
-                    }
-
-                    String url = trim(bundle.getString(Contents.URL_KEY));
-                    if (url != null) {
-                        newContents.append("URL:").append(url).append(';');
-                        newDisplayContents.append('\n').append(url);
-                    }
-
-                    String note = trim(bundle.getString(Contents.NOTE_KEY));
-                    if (note != null) {
-                        newContents.append("NOTE:").append(escapeMECARD(note)).append(';');
-                        newDisplayContents.append('\n').append(note);
-                    }
-
-                    if (newDisplayContents.length() > 0) {
-                        newContents.append(';');
-                        contents = newContents.toString();
-                        displayContents = newDisplayContents.toString();
-                        title = "Contact";
-                    } else {
-                        contents = null;
-                        displayContents = null;
-                    }
-
-                }
-                break;
-            case Contents.Type.LOCATION:
-                if (bundle != null) {
-                    float latitude = bundle.getFloat("LAT", Float.MAX_VALUE);
-                    float longitude = bundle.getFloat("LONG", Float.MAX_VALUE);
-                    if (latitude != Float.MAX_VALUE && longitude != Float.MAX_VALUE) {
-                        contents = "geo:" + latitude + ',' + longitude;
-                        displayContents = latitude + "," + longitude;
-                        title = "Location";
-                    }
                 }
                 break;
         }
@@ -193,7 +74,6 @@ public class QRCodeEncoder {
             hints.put(EncodeHintType.CHARACTER_SET, encoding);
         }
         MultiFormatWriter writer = new MultiFormatWriter();
-        // HARD-CODING Value.
         BitMatrix result = writer.encode(contents, format, 1536, 1536, hints);
         int width = result.getWidth();
         int height = result.getHeight();
@@ -210,29 +90,12 @@ public class QRCodeEncoder {
         return bitmap;
     }
 
-    private static String guessAppropriateEncoding(CharSequence contents) {
+    public static String guessAppropriateEncoding(CharSequence contents) {
         for (int i = 0; i < contents.length(); i++) {
-            if (contents.charAt(i) > 0xFF) { return "UTF-8"; }
+            if (contents.charAt(i) > 0xFF) {
+                return "UTF-8";
+            }
         }
         return null;
-    }
-
-    private static String trim(String s) {
-        if (s == null) { return null; }
-        String result = s.trim();
-        return result.length() == 0 ? null : result;
-    }
-
-    private static String escapeMECARD(String input) {
-        if (input == null || (input.indexOf(':') < 0 && input.indexOf(';') < 0)) { return input; }
-        int length = input.length();
-        StringBuilder result = new StringBuilder(length);
-        for (int i = 0; i < length; i++) {
-            char c = input.charAt(i);
-            if (c == ':' || c == ';')
-                result.append('\\');
-            result.append(c);
-        }
-        return result.toString();
     }
 }

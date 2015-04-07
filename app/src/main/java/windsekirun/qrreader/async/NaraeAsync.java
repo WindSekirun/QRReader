@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
 
 /**
- * palette
+ * QRReader
  * Class: NaraeAsync
  * Created by WindSekirun on 15. 3. 10..
  */
@@ -19,10 +19,10 @@ import java.util.regex.Pattern;
 public class NaraeAsync implements NaraeTask {
     public static final int DEFAULT_POOL_SIZE = getCoresCount() + 1;
     public static final String DEFAULT_TASK_TYPE = "DEFAULT";
-    boolean isMainThread;
-    Runnable runnable;
-    int poolsize;
-    String tasktype;
+    public boolean isMainThread;
+    public Runnable runnable;
+    public int poolsize;
+    public String tasktype;
 
     public NaraeAsync(boolean isMainThread, Runnable runnable, int poolsize, String tasktype) {
         this.isMainThread = isMainThread;
@@ -53,14 +53,6 @@ public class NaraeAsync implements NaraeTask {
     }
 
     public static int getCoresCount() {
-        class CpuFilter implements FileFilter {
-            @Override
-            public boolean accept(final File pathname) {
-                if (Pattern.matches("cpu[0-9]+", pathname.getName()))
-                    return true;
-                return false;
-            }
-        }
         try {
             final File dir = new File("/sys/devices/system/cpu/");
             final File[] files = dir.listFiles(new CpuFilter());
@@ -158,6 +150,15 @@ public class NaraeAsync implements NaraeTask {
         @Override
         public int hashCode() {
             return 31 * mThreadPoolSize + mTaskType.hashCode();
+        }
+    }
+
+    public static class CpuFilter implements FileFilter {
+        @Override
+        public boolean accept(final File pathname) {
+            if (Pattern.matches("cpu[0-9]+", pathname.getName()))
+                return true;
+            return false;
         }
     }
 }

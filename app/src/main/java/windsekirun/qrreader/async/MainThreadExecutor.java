@@ -6,13 +6,14 @@ import android.os.Looper;
 import java.util.concurrent.Executor;
 
 /**
- * palette
+ * QRReader
  * Class: MainThreadExecutor
  * Created by WindSekirun on 15. 3. 10..
  */
+@SuppressWarnings("ALL")
 class MainThreadExecutor implements Executor {
 
-    private final Handler mHandler = new Handler(Looper.getMainLooper());
+    public final Handler mHandler = new Handler(Looper.getMainLooper());
 
     @Override
     public void execute(Runnable runnable) {

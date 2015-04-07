@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -16,13 +15,14 @@ import java.util.ArrayList;
  * Class: TempResultAdapter
  * Created by WindSekirun on 2015. 4. 7..
  */
+@SuppressWarnings("ALL")
 public class TempResultAdapter {
-    public static String TABLE_NAME = "temp_result";
-    public static String KEY_TEXT = "text";
+    public static final String TABLE_NAME = "temp_result";
+    public static final String KEY_TEXT = "text";
 
     public SQLiteDatabase mSQLiteDatabase;
     public TempHelper mDBHelper;
-    public Context c;
+    public final Context c;
 
     public class TempHelper extends SQLiteOpenHelper {
         private static final String DBNAME = "tempresult.db";
@@ -47,10 +47,9 @@ public class TempResultAdapter {
         this.c = c;
     }
 
-    public TempResultAdapter open() throws SQLException {
+    public void open() {
         mDBHelper = new TempHelper(c);
         mSQLiteDatabase = mDBHelper.getWritableDatabase();
-        return this;
     }
 
     public void close() {

@@ -23,7 +23,7 @@
 	OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package windsekirun.qrreader.test.util;
+package windsekirun.qrreader.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -41,7 +41,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@SuppressWarnings({"SameParameterValue", "WeakerAccess", "UnusedParameters"})
+@SuppressWarnings("ALL")
 @SuppressLint("NewApi")
 public class NaraePreference {
 
@@ -464,6 +464,6 @@ public class NaraePreference {
     public void clear() {
         editor.clear();
         editor.commit();
-        keylist.clear();;
+        keylist.clear();
     }
 }

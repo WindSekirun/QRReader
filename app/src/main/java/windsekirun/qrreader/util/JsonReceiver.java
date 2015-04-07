@@ -26,13 +26,9 @@ import java.util.List;
 @SuppressWarnings({"SameParameterValue", "WeakerAccess"})
 public class JsonReceiver {
 
-    static String response = null;
+    public static String response = null;
     public final static int GET = 1;
     public final static int POST = 2;
-
-    public JsonReceiver() {
-
-    }
 
     public String makeJsonCall(String url, int method) {
         return this.makeJsonCall(url, method, null);
@@ -46,26 +42,19 @@ public class JsonReceiver {
 
             if (method == POST) {
                 HttpPost httpPost = new HttpPost(url);
-                if (params != null) {
-                    httpPost.setEntity(new UrlEncodedFormEntity(params));
-                }
-
+                if (params != null) httpPost.setEntity(new UrlEncodedFormEntity(params));
                 httpResponse = httpClient.execute(httpPost);
-
             } else if (method == GET) {
                 if (params != null) {
                     String paramString = URLEncodedUtils.format(params, "utf-8");
                     url += "?" + paramString;
                 }
                 HttpGet httpGet = new HttpGet(url);
-
                 httpResponse = httpClient.execute(httpGet);
-
             }
             assert httpResponse != null;
             httpEntity = httpResponse.getEntity();
             response = EntityUtils.toString(httpEntity);
-
         } catch (IOException e) {
             e.printStackTrace();
         }

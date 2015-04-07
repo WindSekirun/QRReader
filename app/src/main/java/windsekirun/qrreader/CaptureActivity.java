@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,9 +19,10 @@ import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
  * Class: CaptureActivity
  * Created by WindSekirun on 2015. 4. 6..
  */
+@SuppressWarnings("ALL")
 public class CaptureActivity extends ActionBarActivity implements QRCodeReaderView.OnQRCodeReadListener {
     public QRCodeReaderView qrview;
-    Toolbar toolbar;
+    public Toolbar toolbar;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -46,7 +46,6 @@ public class CaptureActivity extends ActionBarActivity implements QRCodeReaderVi
 
     @Override
     public void onQRCodeRead(String s, PointF[] pointFs) {
-        Log.d("qrreadertest", s);
         Intent i = new Intent(CaptureActivity.this, ResultActivity.class);
         Bundle data = new Bundle();
         data.putString("studentNum", s);
@@ -64,13 +63,13 @@ public class CaptureActivity extends ActionBarActivity implements QRCodeReaderVi
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         qrview.getCameraManager().startPreview();
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         qrview.getCameraManager().stopPreview();
     }
