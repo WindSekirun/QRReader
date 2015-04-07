@@ -42,12 +42,8 @@ Choose Language what you want to see.
 * NaraeAsync, Made by WindSekirun
 * NaraePreference, Made by WindSekirun
 
-이 앱의 스크린샷  
-
-[스크린샷 보기](https://github.com/WindSekirun/QRReader/tree/master/screenshot)
-
 Licensed by MIT License, Copyright 2015 WindSekirun. 
-You can see license text at https://github.com/WindSekirun/QRReader/blob/master/License.md 
+[라이센스 전문](https://github.com/WindSekirun/QRReader/blob/master/License.md)
 
 ## English README
 
@@ -85,14 +81,11 @@ This Source uses these Sources.
 * NaraeAsync, Made by WindSekirun
 * NaraePreference, Made by WindSekirun
 
-ScreenShot
-
-[See ScreenShot](https://github.com/WindSekirun/QRReader/tree/master/screenshot )
-
-Sorry, I don't have screenshot with english. I'll provide as soon as possible.
-
 Licensed by MIT License, Copyright 2015 WindSekirun. 
-You can see license text at https://github.com/WindSekirun/QRReader/blob/master/License.md 
+[License.md](https://github.com/WindSekirun/QRReader/blob/master/License.md)
 
+## 스크린샷(ScreenShot)
 
+[See ScreenShot](https://github.com/WindSekirun/QRReader/tree/master/screenshot)
 
+Sorry, I don't have screenshot with english. i will provide as soon as possible.
