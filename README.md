@@ -3,8 +3,8 @@
 README provides 2 Languages.
 Choose Language what you want to see. 
 
-[한국어 (Korean)]
-[English (English)]
+* [한국어 (Korean)](README.md#korean-readme)
+* [English (English)](README.md#english-readme)
 
 ##Korean README
 
@@ -13,7 +13,7 @@ Choose Language what you want to see.
 
 이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다. (기준 커밋:  a756779)
 
-[apk download](https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk)
+[APK 다운로드](https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk)
 
 이 소스는 아래의 라이브러리를 사용하고 있습니다.
 
@@ -42,8 +42,9 @@ Choose Language what you want to see.
 * NaraeAsync, Made by WindSekirun
 * NaraePreference, Made by WindSekirun
 
-이 앱의 스크린샷  [더보기](https://github.com/WindSekirun/QRReader/tree/master/screenshot )
-![generated qr code screen](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/3, generated.png)
+이 앱의 스크린샷  
+
+[스크린샷 보기](https://github.com/WindSekirun/QRReader/tree/master/screenshot)
 
 Licensed by MIT License, Copyright 2015 WindSekirun. 
 You can see license text at https://github.com/WindSekirun/QRReader/blob/master/License.md 
@@ -77,16 +78,18 @@ This Source contains these functions, but some bug is happened.
 
 This Source will contain these functions.
 
-* Nothing to implement 
+* Nothing to implement :)
 
 This Source uses these Sources.
 
 * NaraeAsync, Made by WindSekirun
 * NaraePreference, Made by WindSekirun
 
-ScreenShot [See more](https://github.com/WindSekirun/QRReader/tree/master/screenshot )
-![generated qr code screen](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/3, generated.png)
+ScreenShot
 
+[See ScreenShot](https://github.com/WindSekirun/QRReader/tree/master/screenshot )
+
+Sorry, I don't have screenshot with english. I'll provide as soon as possible.
 
 Licensed by MIT License, Copyright 2015 WindSekirun. 
 You can see license text at https://github.com/WindSekirun/QRReader/blob/master/License.md 
