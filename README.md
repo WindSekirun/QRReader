@@ -17,12 +17,13 @@ https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 * 학번으로 QR코드 생성
 * QR코드 내용 읽기
 * 서버로의 저장을 위해 인식한 QR코드를 SQLite 형태로 저장
+* 서버에서 기본 데이터 수집 (PHP 미완성)
+* 서버에서 수집한 기본 데이터와 SQLite를 대조해 최종적으로 서버에 보낼 Hashmap 구현
+* 날짜별로 테이블 생성 (PHP 미완성)
 
 이 소스는 아래의 기능을 포함할 예정입니다.
 
-* 서버에서 기본 데이터 수집
-* 서버에서 수집한 기본 데이터와 SQLite를 대조해 최종적으로 서버에 보낼 Hashmap 구현
-* Hashmap를 서버로 보내 날짜별로 테이블이 생성, 값이 넣어지도록 구현.
+* Hashmap를 서버로 보내 값이 넣어지도록 구현.
 
 이 소스는 아래의 소스를 사용하고 있습니다.
 
