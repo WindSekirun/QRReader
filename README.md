@@ -3,7 +3,7 @@
 이 코드는 단순한 프로토타입을 위한 코드입니다.
 사용에 주의하십시오.
 
-이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다.
+이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다. (기준 커밋:  4df05da)
 
 https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 
@@ -32,4 +32,5 @@ https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 이 앱의 스크린샷 [더보기: https://github.com/WindSekirun/QRReader/tree/master/screenshot ]
 ![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/2.png)
 
-Copyleft 2015 WindSekirun.
+Licensed by MIT License, Copyright 2015 WindSekirun. 
+You can see license text at https://github.com/WindSekirun/QRReader/blob/master/License.md 
