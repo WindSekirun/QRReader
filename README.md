@@ -32,4 +32,5 @@ https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 이 앱의 스크린샷 [더보기: https://github.com/WindSekirun/QRReader/tree/master/screenshot ]
 ![alt tag](https://raw.githubusercontent.com/WindSekirun/QRReader/master/screenshot/2.png)
 
-Copyleft 2015 WindSekirun.
+Licensed by MIT License, Copyright 2015 WindSekirun. 
+You can see license text at https://github.com/WindSekirun/QRReader/blob/master/License.md 
