@@ -119,7 +119,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public class SendData implements Runnable {
         ArrayList<String> qrlist;
         ArrayList<String> receivedList = new ArrayList<>();
-        HashMap<String, Integer> map = new HashMap<String, Integer>();
+        HashMap<String, Integer> map = new HashMap<>();
 
         @Override
         public void run() {
@@ -137,7 +137,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             JsonReceiver sh = new JsonReceiver();
             String jsonStr = sh.makeJsonCall("", JsonReceiver.GET);
             if (jsonStr != null) {
-                JSONObject jsonObj = null;
+                JSONObject jsonObj;
                 try {
                     jsonObj = new JSONObject(jsonStr);
                     JSONArray data = jsonObj.getJSONArray("data");
