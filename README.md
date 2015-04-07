@@ -23,7 +23,7 @@ https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 
 * 서버에서 수집한 기본 데이터와 SQLite를 대조해 최종적으로 서버에 보낼 Hashmap 구현 (아래 작업 선행 필요)
 * 날짜별로 테이블 생성 (테스트 완료, 자바 디버깅 필요)
-* Hashmap를 서버로 보내 값이 넣어지도록 구현. (PHP 디버깅 필요, 자바 디버깅 필요)
+* Hashmap를 서버로 보내 값이 넣어지도록 구현. (테스트 완료, 자바 디버깅 필요)
 
 이 소스는 아래의 기능을 포함할 예정입니다.
 
