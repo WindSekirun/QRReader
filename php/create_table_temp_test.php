@@ -9,7 +9,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$name = $_POST ['name'];
+$name = "checked20150407";
 $sql = "CREATE TABLE ".$name;
 $sql = $sql." (id int(255) AUTO_INCREMENT PRIMARY KEY, ";
 $sql = $sql."studentNum varchar(1000) not null, ";

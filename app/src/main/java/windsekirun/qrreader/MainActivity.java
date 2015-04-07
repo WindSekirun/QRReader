@@ -159,7 +159,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             // Create Table follows Date
             try {
                 StringBuilder builder = new StringBuilder();
-                builder.append("name").append("=").append(getTime());
+                builder.append("name").append("=").append("checked" + getTime());
                 postDatatoPHP("http://windsekirun.cafe24.com/php/create_table.php", builder);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -169,7 +169,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             for (int i = 0; i < map.size(); i++) {
                 try {
                     StringBuilder builder = new StringBuilder();
-                    builder.append("tableName").append("=").append(getTime()).append("&");
+                    builder.append("tableName").append("=").append("checked" + getTime()).append("&");
                     builder.append("studentNum").append("=").append(receivedList.get(i)).append("&");
                     builder.append("check").append("=").append(map.get(receivedList.get(i)));
                     postDatatoPHP("http://windsekirun.cafe24.com/php/put_value.php", builder);

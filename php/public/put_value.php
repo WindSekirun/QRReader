@@ -1,7 +1,7 @@
 <?php
 $DB_HOST = "localhost";
 $DB_USER = "windsekirun";
-$DB_PASSWORD = "spdlxm64326752!";
+$DB_PASSWORD = "";
 $DB_NAME = "windsekirun";
 
 $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
