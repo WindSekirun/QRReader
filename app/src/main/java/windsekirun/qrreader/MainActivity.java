@@ -18,16 +18,15 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,6 +37,7 @@ import windsekirun.qrreader.db.TempResultAdapter;
 import windsekirun.qrreader.util.JsonReceiver;
 
 
+@SuppressWarnings("ALL")
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     TempResultAdapter adapter;
 
@@ -157,10 +157,26 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             for (int i = 0; i < qrlist.size(); i++) map.put(qrlist.get(i), 1);
 
             // Create Table follows Date
-            // TODO: implement put string to server
+            try {
+                StringBuilder builder = new StringBuilder();
+                builder.append("name").append("=").append(getTime());
+                postDatatoPHP("http://windsekirun.cafe24.com/php/create_table.php", builder);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             // put hashmap to server
-            // TODO: implement put hashmap to server
+            for (int i = 0; i < map.size(); i++) {
+                try {
+                    StringBuilder builder = new StringBuilder();
+                    builder.append("tableName").append("=").append(getTime()).append("&");
+                    builder.append("studentNum").append("=").append(receivedList.get(i)).append("&");
+                    builder.append("check").append("=").append(map.get(receivedList.get(i)));
+                    postDatatoPHP("http://windsekirun.cafe24.com/php/put_value.php", builder);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
             // SQLite list clear
             try {
@@ -179,6 +195,35 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             });
         }
     }
+
+    public void postDatatoPHP(String uri, StringBuilder buffer) throws IOException {
+        URL url = new URL(uri);
+        HttpURLConnection http = (HttpURLConnection) url.openConnection();
+        http.setDefaultUseCaches(false);
+        http.setDoInput(true);
+        http.setDoOutput(true);
+        http.setRequestMethod("POST");
+        http.setRequestProperty("content-type", "application/x-www-form-urlencoded");
+        OutputStreamWriter outStream = new OutputStreamWriter(http.getOutputStream(), "EUC-KR");
+        PrintWriter writer = new PrintWriter(outStream);
+        writer.write(buffer.toString());
+        writer.flush();
+    }
+
+    public void postDatatoPHP(String uri, String data) throws IOException {
+        URL url = new URL(uri);
+        HttpURLConnection http = (HttpURLConnection) url.openConnection();
+        http.setDefaultUseCaches(false);
+        http.setDoInput(true);
+        http.setDoOutput(true);
+        http.setRequestMethod("POST");
+        http.setRequestProperty("content-type", "application/x-www-form-urlencoded");
+        OutputStreamWriter outStream = new OutputStreamWriter(http.getOutputStream(), "EUC-KR");
+        PrintWriter writer = new PrintWriter(outStream);
+        writer.write(data);
+        writer.flush();
+    }
+
 
     protected String getTime() {
         return DateFormat.format("yyyyMMdd", Calendar.getInstance().getTime()).toString();
