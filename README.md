@@ -3,7 +3,7 @@
 이 코드는 단순한 프로토타입을 위한 코드입니다.
 사용에 주의하십시오.
 
-이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다. (기준 커밋:  4df05da)
+이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다. (기준 커밋:  04aa500)
 
 https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 
@@ -16,10 +16,10 @@ https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk
 
 * 학번으로 QR코드 생성
 * QR코드 내용 읽기
+* 서버로의 저장을 위해 인식한 QR코드를 SQLite 형태로 저장
 
 이 소스는 아래의 기능을 포함할 예정입니다.
 
-* 서버로의 저장을 위해 인식한 QR코드를 SQLite 형태로 저장
 * 서버에서 기본 데이터 수집
 * 서버에서 수집한 기본 데이터와 SQLite를 대조해 최종적으로 서버에 보낼 Hashmap 구현
 * Hashmap를 서버로 보내 날짜별로 테이블이 생성, 값이 넣어지도록 구현.
