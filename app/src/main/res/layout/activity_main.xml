@@ -46,4 +46,15 @@
         android:layout_marginLeft="10dip"
         android:layout_margin="10dip" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="서버로 보내기"
+        android:id="@+id/serverSend"
+        android:background="@color/light_blue_700"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/license"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10pt" />
+
 </RelativeLayout>
