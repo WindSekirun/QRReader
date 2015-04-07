@@ -1,4 +1,4 @@
-package windsekirun.qrreader.test;
+package windsekirun.qrreader;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -26,9 +26,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import windsekirun.qrreader.test.async.NaraeAsync;
-import windsekirun.qrreader.test.encode.Contents;
-import windsekirun.qrreader.test.encode.QRCodeEncoder;
+import windsekirun.qrreader.async.NaraeAsync;
+import windsekirun.qrreader.encode.Contents;
+import windsekirun.qrreader.encode.QRCodeEncoder;
 
 /**
  * QRReader

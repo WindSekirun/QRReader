@@ -1,4 +1,4 @@
-package windsekirun.qrreader.test;
+package windsekirun.qrreader;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

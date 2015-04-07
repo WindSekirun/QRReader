@@ -1,4 +1,4 @@
-package windsekirun.qrreader.test.async;
+package windsekirun.qrreader.async;
 
 import java.io.File;
 import java.io.FileFilter;

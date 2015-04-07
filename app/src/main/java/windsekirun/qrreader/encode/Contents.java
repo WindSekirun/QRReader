@@ -1,4 +1,4 @@
-package windsekirun.qrreader.test.encode;
+package windsekirun.qrreader.encode;
 
 import android.provider.ContactsContract;
 

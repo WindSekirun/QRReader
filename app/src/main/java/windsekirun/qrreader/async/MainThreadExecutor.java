@@ -1,4 +1,4 @@
-package windsekirun.qrreader.test.async;
+package windsekirun.qrreader.async;
 
 import android.os.Handler;
 import android.os.Looper;
