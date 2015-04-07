@@ -158,7 +158,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             for (int i = 0; i < qrlist.size(); i++) map.put(qrlist.get(i), 1);
 
             // Create Table follows Date
-            makeDateTable(getTime());
+            // TODO: implement put string to server
 
             // put hashmap to server
             // TODO: implement put hashmap to server
@@ -179,25 +179,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 }
             });
         }
-    }
-
-    public HttpPost makeDateTable(String dateTableName) {
-        // TODO: implement Create Table PHP
-        HttpPost request = new HttpPost("");
-        ArrayList<NameValuePair> nameValue = new ArrayList<>();
-        nameValue.add(new BasicNameValuePair("name", dateTableName));
-        request.setEntity(makeEntity(nameValue));
-        return request;
-    }
-
-    public HttpEntity makeEntity(ArrayList<NameValuePair> $nameValue){
-        HttpEntity result = null;
-        try{
-            result = new UrlEncodedFormEntity($nameValue,"UTF-8");
-        } catch (UnsupportedEncodingException e){
-            e.printStackTrace();
-        }
-        return result;
     }
 
     protected String getTime() {
