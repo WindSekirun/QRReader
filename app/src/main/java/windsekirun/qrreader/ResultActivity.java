@@ -88,7 +88,12 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
                 adapter.open();
                 adapter.insertText(studentNum);
                 adapter.close();
-                statusText.setText("체크 완료!");
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        statusText.setText("체크 완료!");
+                    }
+                });
             } catch (SQLException e) {
                 e.printStackTrace();
             }
