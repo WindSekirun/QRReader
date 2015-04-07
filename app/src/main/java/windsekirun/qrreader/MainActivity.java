@@ -133,9 +133,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             }
 
             // Receive Server Form data.
-            // TODO: implement Receive PHP
             JsonReceiver sh = new JsonReceiver();
-            String jsonStr = sh.makeJsonCall("", JsonReceiver.GET);
+            String jsonStr = sh.makeJsonCall("http://windsekirun.cafe24.com/php/get_formdata.php", JsonReceiver.GET);
             if (jsonStr != null) {
                 JSONObject jsonObj;
                 try {
