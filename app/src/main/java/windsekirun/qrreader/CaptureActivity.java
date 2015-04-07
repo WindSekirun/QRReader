@@ -47,7 +47,11 @@ public class CaptureActivity extends ActionBarActivity implements QRCodeReaderVi
     @Override
     public void onQRCodeRead(String s, PointF[] pointFs) {
         Log.d("qrreadertest", s);
-        Toast.makeText(CaptureActivity.this, "인식한 내용: " + s, Toast.LENGTH_LONG).show();
+        Intent i = new Intent(CaptureActivity.this, ResultActivity.class);
+        Bundle data = new Bundle();
+        data.putString("studentNum", s);
+        i.putExtras(data);
+        startActivity(i);
     }
 
     @Override
