@@ -4,8 +4,3 @@
 /.idea/libraries
 .DS_Store
 /build
-/php/create_table.php
-/php/create_table_temp_test.php
-/php/db_connect.php
-/php/get_formdata.php
-/php/put_value.php
