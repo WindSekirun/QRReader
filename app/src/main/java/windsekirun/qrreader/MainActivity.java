@@ -155,7 +155,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
             qrlist = adapter.getText();
             adapter.close();
 
-            // Receive Server Form data.
+            // Receive Default Data from server
             JsonReceiver sh = new JsonReceiver();
             String jsonStr = sh.makeJsonCall("http://windsekirun.cafe24.com/php/get_formdata.php", JsonReceiver.GET);
             if (jsonStr != null) {
@@ -215,37 +215,27 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public String sendDataforCreateTable(String url, String date) throws ClientProtocolException, IOException {
-        HttpPost request = makeHttpPostforCreateTable(url, date);
-        HttpClient client = new DefaultHttpClient();
-        ResponseHandler<String> reshandler = new BasicResponseHandler();
-        String result = client.execute(request, reshandler);
-        return result;
-    }
-
-    public HttpPost makeHttpPostforCreateTable(String url, String date) {
         HttpPost request = new HttpPost(url);
         Vector<NameValuePair> nameValue = new Vector<NameValuePair>();
         nameValue.add(new BasicNameValuePair("name", date));
         request.setEntity(makeEntity(nameValue));
-        return request;
-    }
-
-    public String sendDataforInsertData(String url, String tableName, String studentNum, String checked) throws ClientProtocolException, IOException {
-        HttpPost request = makeHttpPostforInsertData(url, tableName, studentNum, checked);
         HttpClient client = new DefaultHttpClient();
         ResponseHandler<String> reshandler = new BasicResponseHandler();
         String result = client.execute(request, reshandler);
         return result;
     }
 
-    public HttpPost makeHttpPostforInsertData(String url, String tableName, String studentNum, String checked) {
+    public String sendDataforInsertData(String url, String tableName, String studentNum, String checked) throws ClientProtocolException, IOException {
         HttpPost request = new HttpPost(url);
         Vector<NameValuePair> nameValue = new Vector<NameValuePair>();
         nameValue.add(new BasicNameValuePair("tableName", tableName));
         nameValue.add(new BasicNameValuePair("studentNum", studentNum));
         nameValue.add(new BasicNameValuePair("checked", checked));
         request.setEntity(makeEntity(nameValue));
-        return request;
+        HttpClient client = new DefaultHttpClient();
+        ResponseHandler<String> reshandler = new BasicResponseHandler();
+        String result = client.execute(request, reshandler);
+        return result;
     }
 
     public HttpEntity makeEntity(Vector<NameValuePair> nameValue) {
