@@ -28,6 +28,7 @@ Choose Language what you want to see.
 * 서버에서 기본 데이터 수집
 * 날짜별로 테이블 생성
 * 출석 현황을 서버로 업로드
+* 출석 현황 확인
 
 이 소스는 아래의 기능을 포함하고 있으나 일부 요소의 디버깅 테스트가 필요합니다.
 
@@ -52,7 +53,7 @@ So, I don’t care you use my code and something is wrong.
 
 Here’s APK file with This Source: (Based on a756779)
 
-[apk download](https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk)
+[APK download](https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk)
 
 This Source uses These Library.
 
@@ -67,6 +68,7 @@ This Source cans these behavior.
 * Receive Default Data from Server.
 * Create Table follows Date.
 * Send Class Attendance Status to Server
+* Check Class Attendance Status
 
 This Source contains these functions, but some bug is happened.
 
