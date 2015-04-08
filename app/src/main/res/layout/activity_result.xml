@@ -43,8 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="학번"
-        android:id="@+id/textView3"
+        android:text="서동길"
+        android:id="@+id/name"
         android:layout_above="@+id/studentNum"
         android:layout_centerHorizontal="true"
         android:textSize="15pt" />

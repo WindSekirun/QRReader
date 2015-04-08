@@ -133,6 +133,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public class SendData implements Runnable {
         ArrayList<String> qrlist;
         ArrayList<String> receivedList = new ArrayList<>();
+        ArrayList<String> receivedNameList = new ArrayList<>();
         HashMap<String, Integer> map = new HashMap<>();
         ProgressDialog mpd;
 
@@ -166,7 +167,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject c = data.getJSONObject(i);
                         String receivedData = c.getString("studentNum");
+                        String receivedName = c.getString("studentName");
                         receivedList.add(receivedData);
+                        receivedNameList.add(receivedName);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -24,6 +24,7 @@
         <activity android:name=".CaptureActivity"/>
         <activity android:name=".GenerateActivity"/>
         <activity android:name=".ResultActivity"/>
+        <activity android:name=".SendActivity"/>
     </application>
 
 </manifest>
