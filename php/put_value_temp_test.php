@@ -8,13 +8,15 @@ $conn = mysqli_connect($DB_HOST, $DB_USER, $DB_PASSWORD, $DB_NAME);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$tableName = "checked20150407";
+$tableName = "checked20150408";
 $studentNum = "20152492";
 $checked = "1";
+$studentName = "name1";
 
 $sql = "INSERT INTO ".$tableName;
-$sql = $sql." (studentNum, checked) VALUES (";
+$sql = $sql." (studentNum, studentName, checked) VALUES (";
 $sql = $sql."'".$studentNum."', ";
+$sql = $sql."'".$studentName."', ";
 $sql = $sql."'".$checked."')";
 echo $sql;
 

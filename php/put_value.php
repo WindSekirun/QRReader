@@ -11,10 +11,12 @@ if (!$conn) {
 $tableName = $_POST ['tableName'];
 $studentNum = $_POST ['studentNum'];
 $checked = $_POST ['checked'];
+$studentName = $_POST ['studentName'];
 
 $sql = "INSERT INTO ".$tableName;
-$sql = $sql." (studentNum, checked) VALUES (";
+$sql = $sql." (studentNum, studentName, checked) VALUES (";
 $sql = $sql."'".$studentNum."', ";
+$sql = $sql."'".$studentName."', ";
 $sql = $sql."'".$checked."')";
 
 if (mysqli_query($conn, $sql)) {

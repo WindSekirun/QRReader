@@ -12,6 +12,7 @@ if (mysql_num_rows($result) > 0) {
     while ($row = mysql_fetch_array($result)) {
         $data = array();
         $data["studentNum"] = $row["studentNum"];
+        $data["studentName"] = $row["studentName"];
         array_push($response["data"], $data);
     }
 

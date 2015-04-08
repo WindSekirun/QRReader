@@ -9,10 +9,11 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$name = "checked20150407";
+$name = "checked20150408";
 $sql = "CREATE TABLE ".$name;
 $sql = $sql." (id int(255) AUTO_INCREMENT PRIMARY KEY, ";
 $sql = $sql."studentNum varchar(1000) not null, ";
+$sql = $sql."studentName varchar(1000) not null, ";
 $sql = $sql."checked varchar(1000) not null)";
 echo $sql;
 echo "";
