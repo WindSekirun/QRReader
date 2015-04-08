@@ -11,7 +11,7 @@ Choose Language what you want to see.
 이 코드 및 이 앱은 QR코드 출석 시스템의 **프로토타입** 코드입니다.
 따라서 제공하는 모든 소스에 대한 책임은 지지 않습니다.
 
-이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다. (기준 커밋:  [2110809](https://github.com/WindSekirun/QRReader/commit/9fba4520a9d8958c1fb0a447295135cdab244d17))
+이 소스로 컴파일된 apk 파일은 아래 링크에서 받으실 수 있습니다. (기준 커밋:  [9147acb](https://github.com/WindSekirun/QRReader/commit/e4801b5a81e6ef1d12c5e655cb5ab151ef9b929f))
 
 [APK 다운로드](https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk)
 
@@ -51,7 +51,7 @@ Licensed by MIT License, Copyright 2015 WindSekirun.
 This Code and This Application is **Prototype** about “QR-Code Class Attendance System” 
 So, I don’t care you use my code and something is wrong.
 
-Here’s APK file with This Source: (Based on [2110809](https://github.com/WindSekirun/QRReader/commit/9fba4520a9d8958c1fb0a447295135cdab244d17))
+Here’s APK file with This Source: (Based on [9147acb](https://github.com/WindSekirun/QRReader/commit/e4801b5a81e6ef1d12c5e655cb5ab151ef9b929f))
 
 [APK download](https://github.com/WindSekirun/QRReader/blob/master/app/app-release.apk)
 
