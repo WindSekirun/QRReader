@@ -58,7 +58,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="서버로 보내기"
+        android:text="출석현황 보기"
         android:id="@+id/serverSend"
         android:background="@color/light_blue_700"
         android:textColor="#ffffff"

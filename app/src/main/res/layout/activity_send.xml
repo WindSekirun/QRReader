@@ -6,12 +6,11 @@
         class="android.support.v7.widget.Toolbar"
         android:layout_width="fill_parent"
         android:layout_height="56dip"
-        android:id="@+id/view"
+        android:id="@+id/toolbar"
         android:background="@color/light_blue_500"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dip" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="fill_parent"
@@ -29,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/list"
-        android:layout_below="@+id/view"
+        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/send" />

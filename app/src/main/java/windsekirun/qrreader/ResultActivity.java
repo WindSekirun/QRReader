@@ -56,6 +56,7 @@ public class ResultActivity extends ActionBarActivity implements View.OnClickLis
         toolbar.setTitleTextColor(0xffffffff);
         TextView studentNumText = (TextView) findViewById(R.id.studentNum);
         statusText = (TextView) findViewById(R.id.statusText);
+        studentName = (TextView) findViewById(R.id.name);
         Button anotherQR = (Button) findViewById(R.id.anotherQR);
         anotherQR.setOnClickListener(this);
         Intent i = getIntent();
